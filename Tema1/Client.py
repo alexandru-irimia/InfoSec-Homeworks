@@ -6,12 +6,12 @@ from Crypto.Cipher import AES
 
 
 class Client:
-    def __init__(self, port: int, mode: bytes = b'ECB'):
+    def __init__(self, port: int):
         self.iv = KeyManager.get_iv()
         self.public_key = KeyManager.public_key()
         self.s = socket()
         self.port = port
-        self.mode = mode
+        self.mode = input("Mode :").encode()
         self.enc = None
 
     def start(self):
